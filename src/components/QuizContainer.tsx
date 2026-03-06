@@ -97,7 +97,9 @@ export default function QuizContainer() {
                 }
 
                 return (
-                  <button
+                  <motion.button
+                    whileHover={!isAnswered ? { scale: 1.02 } : {}}
+                    whileTap={!isAnswered ? { scale: 0.98 } : {}}
                     key={option}
                     disabled={isAnswered}
                     onClick={() => handleOptionSelect(option)}
@@ -108,7 +110,7 @@ export default function QuizContainer() {
                       {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5" />}
                       {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-400" />}
                     </div>
-                  </button>
+                  </motion.button>
                 );
               })}
             </div>
